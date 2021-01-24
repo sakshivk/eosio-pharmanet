@@ -49,7 +49,7 @@ class PostForm extends React.Component<{}, PostFormState> {
             const result = await this.api.transact(
                 {
                     actions: [{
-                        account: 'talk',
+                        account: 'pharmanet',
                         name: 'post',
                         authorization: [{
                             actor: this.state.data.user,
@@ -132,7 +132,7 @@ class Messages extends React.Component<{}, { content: string }> {
         this.interval = window.setInterval(async () => {
             try {
                 const rows = await rpc.get_table_rows({
-                    json: true, code: 'talk', scope: '', table: 'message', limit: 1000,
+                    json: true, code: 'pharmanet', scope: '', table: 'message', limit: 1000,
                 });
                 let content =
                     'id          reply_to      user          content\n' +
