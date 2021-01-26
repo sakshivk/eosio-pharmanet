@@ -110,7 +110,7 @@ class PostForm extends React.Component<{}, PostFormState> {
                 </tbody>
             </table>
             <br />
-            <button onClick={e => this.post()}>Verify</button>
+            <center><button onClick={e => this.post()}>Verify</button></center>
             {this.state.error && <div>
                 <br />
                 Error:
