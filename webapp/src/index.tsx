@@ -11,7 +11,7 @@ const rpc = new JsonRpc(''); // nodeos and web server are on same port
 interface PostData {
     id?: number;
     user?: string;
-    reply_to?: string;
+    reply_to?: number;
     content?: string;
 };
 
