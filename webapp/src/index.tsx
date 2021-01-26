@@ -11,7 +11,7 @@ const rpc = new JsonRpc(''); // nodeos and web server are on same port
 interface PostData {
     id?: number;
     user?: string;
-    reply_to?: number;
+    reply_to?: string;
     content?: string;
 };
 
@@ -31,9 +31,9 @@ class PostForm extends React.Component<{}, PostFormState> {
             privateKey: '5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3',
             data: {
                 id: 0,
-                user: 'Ranbaxy',
-                reply_to: 0,
-                content: 'Verified Manufacturer'
+                user: 'ranbaxy',
+                reply_to: 'pharmanet',
+                content: 'Verified'
             },
             error: '',
         };
@@ -135,7 +135,7 @@ class Messages extends React.Component<{}, { content: string }> {
                     json: true, code: 'pharmanet', scope: '', table: 'message', limit: 1000,
                 });
                 let content =
-                    'id          Distributor      Manufacturer          Status\n' +
+                    'id          Distributor    Manufacturer    Status\n' +
                     '=============================================================\n';
                 for (let row of rows.rows)
                     content +=
