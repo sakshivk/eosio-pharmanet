@@ -3,12 +3,12 @@
 // Message table
 struct [[eosio::table("message"), eosio::contract("pharmanet")]] message {
     uint64_t    id       = {}; // Non-0
-    uint64_t    reply_to = {}; // Non-0 if this is a reply
+    std::string    reply_to = {}; // Non-0 if this is a reply
     eosio::name user     = {};
     std::string content  = {};
 
     uint64_t primary_key() const { return id; }
-    uint64_t get_reply_to() const { return reply_to; }
+    std::string get_reply_to() const { return reply_to; }
 };
 
 using message_table = eosio::multi_index<
@@ -21,7 +21,7 @@ class pharmanet : eosio::contract {
     using contract::contract;
 
     // Post a message
-    [[eosio::action]] void post(uint64_t id, uint64_t reply_to, eosio::name user, const std::string& content) {
+    [[eosio::action]] void post(uint64_t id, std::string reply_to, eosio::name user, const std::string& content) {
         message_table table{get_self(), 0};
 
         // Check user
