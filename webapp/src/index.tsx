@@ -32,7 +32,7 @@ class PostForm extends React.Component<{}, PostFormState> {
             data: {
                 id: 0,
                 user: 'ranbaxy',
-                reply_to: 'pharmanet',
+                reply_to: 0,
                 content: 'Verified'
             },
             error: '',
@@ -110,7 +110,7 @@ class PostForm extends React.Component<{}, PostFormState> {
                 </tbody>
             </table>
             <br />
-            <center><button onClick={e => this.post()}>Verify</button></center>
+            <button onClick={e => this.post()}>Verify</button>
             {this.state.error && <div>
                 <br />
                 Error:
