@@ -31,9 +31,9 @@ class PostForm extends React.Component<{}, PostFormState> {
             privateKey: '5KQwrPbwdL6PhXujxW37FSSQZ1JiwsST4cqQzDeyXtP79zkvFD3',
             data: {
                 id: 0,
-                user: 'bob',
+                user: 'Ranbaxy',
                 reply_to: 0,
-                content: 'This is a test'
+                content: 'Verified Manufacturer'
             },
             error: '',
         };
@@ -76,7 +76,7 @@ class PostForm extends React.Component<{}, PostFormState> {
             <table>
                 <tbody>
                     <tr>
-                        <td>Private Key</td>
+                        <td>Private Key of Authority</td>
                         <td><input
                             style={{ width: 500 }}
                             value={this.state.privateKey}
@@ -84,7 +84,7 @@ class PostForm extends React.Component<{}, PostFormState> {
                         /></td>
                     </tr>
                     <tr>
-                        <td>User</td>
+                        <td>Manufacturer</td>
                         <td><input
                             style={{ width: 500 }}
                             value={this.state.data.user}
@@ -92,7 +92,7 @@ class PostForm extends React.Component<{}, PostFormState> {
                         /></td>
                     </tr>
                     <tr>
-                        <td>Reply To</td>
+                        <td>Distributor</td>
                         <td><input
                             style={{ width: 500 }}
                             value={this.state.data.reply_to}
@@ -100,7 +100,7 @@ class PostForm extends React.Component<{}, PostFormState> {
                         /></td>
                     </tr>
                     <tr>
-                        <td>Content</td>
+                        <td>Status</td>
                         <td><input
                             style={{ width: 500 }}
                             value={this.state.data.content}
@@ -110,7 +110,7 @@ class PostForm extends React.Component<{}, PostFormState> {
                 </tbody>
             </table>
             <br />
-            <button onClick={e => this.post()}>Post</button>
+            <button onClick={e => this.post()}>Verify</button>
             {this.state.error && <div>
                 <br />
                 Error:
@@ -135,7 +135,7 @@ class Messages extends React.Component<{}, { content: string }> {
                     json: true, code: 'pharmanet', scope: '', table: 'message', limit: 1000,
                 });
                 let content =
-                    'id          reply_to      user          content\n' +
+                    'id          Distributor      Manufacturer          Status\n' +
                     '=============================================================\n';
                 for (let row of rows.rows)
                     content +=
@@ -167,7 +167,7 @@ ReactDOM.render(
     <div>
         <PostForm />
         <br />
-        Messages:
+        VERIFIED DETAILS:
         <Messages />
     </div>,
     document.getElementById("example")
