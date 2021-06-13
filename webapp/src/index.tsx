@@ -76,7 +76,7 @@ class PostForm extends React.Component<{}, PostFormState> {
             <table>
                 <tbody>
                     <tr>
-                        <td>Private Key of Authority</td>
+                        <td>Public Key of Authority</td>
                         <td><input
                             style={{ width: 500 }}
                             value={this.state.privateKey}
